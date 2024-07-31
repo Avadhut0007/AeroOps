@@ -1,0 +1,88 @@
+ <app-navbar></app-navbar>
+<body>
+    
+<div class="container" id="container" [class.active]="isActive">
+    <div class="form-container sign-up">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <h1><b>Create Account</b></h1>
+            <span>or use your email for registeration</span>
+            <!-- <input type="text" placeholder="Name" [(ngModel)]="user.firstName" name="firstName">
+            <input type="email" placeholder="Email" [(ngModel)]="user.emailId" name="emailId">
+            <input type="password" placeholder="Password" [(ngModel)]="user.userPassword" name="userPassword">
+            <button type="submit">Sign Up</button> -->
+            <div>
+                <input type="text" placeholder="Enter Your Name" formControlName="firstName">
+                <div *ngIf="signupForm.get('firstName')?.invalid && (signupForm.get('firstName')?.dirty || signupForm.get('firstName')?.touched)" class="error-message">
+                  Name is required.
+                </div>
+              </div>
+      
+              <div>
+                <input type="email" placeholder="Enter Your Email Id" formControlName="emailId">
+                <div *ngIf="signupForm.get('emailId')?.invalid && (signupForm.get('emailId')?.dirty || signupForm.get('emailId')?.touched)" class="error-message">
+                  <div *ngIf="signupForm.get('emailId')?.errors?.['required']">Email is required.</div>
+                  <div *ngIf="signupForm.get('emailId')?.errors?.['email']">Invalid email format.</div>
+                </div>
+              </div>
+      
+              <div>
+                <input type="password" placeholder="Enter Your Password" formControlName="userPassword">
+                <div *ngIf="signupForm.get('userPassword')?.invalid && (signupForm.get('userPassword')?.dirty || signupForm.get('userPassword')?.touched)" class="error-message">
+                  <div *ngIf="signupForm.get('userPassword')?.errors?.['required']">Password is required.</div>
+                  <div *ngIf="signupForm.get('userPassword')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                </div>
+              </div>
+              
+              <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+      
+        </form>
+    </div>
+
+
+
+    <!-- Login Form -->
+    <div class="form-container sign-in">
+        <form  [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <h1><b>Sign In</b></h1>
+            <span>or use your email password</span>
+            
+            <div>
+                <input type="email" placeholder="Enter Your Email Id" formControlName="emailId">
+                <div *ngIf="loginForm.get('emailId')?.invalid && (loginForm.get('emailId')?.dirty || loginForm.get('emailId')?.touched)" class="error-message">
+                    <div *ngIf="loginForm.get('emailId')?.errors?.['required']">Email is required</div>
+                    <div *ngIf="loginForm.get('emailId')?.errors?.['email']">Invalid email format</div>
+                </div>
+            </div>
+
+            <div>
+                <input type="password" placeholder="Enter Your Password" formControlName="userPassword">
+                <div *ngIf="loginForm.get('userPassword')?.invalid && (loginForm.get('userPassword')?.dirty || loginForm.get('userPassword')?.touched)" class="error-message">
+                    <div *ngIf="loginForm.get('userPassword')?.errors?.['required']">Password is required</div>
+                    <div *ngIf="loginForm.get('userPassword')?.errors?.['minlength']">Password must be 6 char long</div>
+                </div>
+            </div>
+
+            <a href="#">Forget Your Password?</a>
+            <button type="submit" [disabled]="loginForm.invalid">Sign In</button>
+        </form>
+    </div>
+
+
+
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1><b>Welcome Back!</b></h1>
+                <p>Enter your personal details to use all of site features</p>
+                <button class="hidden" id="login" (click)="toggleActive(false)">Sign In</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1><b>Hello, Friend!</b></h1>
+                <p>Register with your personal details to use all of site features</p>
+                <button class="hidden" id="register" (click)="toggleActive(true)">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+

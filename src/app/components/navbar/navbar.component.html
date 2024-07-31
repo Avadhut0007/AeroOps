@@ -1,0 +1,24 @@
+<!-- <div *ngIf="isLoading; else navbarContent">
+  <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+</div> -->
+
+<!-- <ng-template #navbarContent> -->
+
+<nav class="navbar">
+    <div class="navbar-brand">
+      <a routerLink="/">AeroOps</a>
+    </div>
+    <ul class="navbar-links" [class.active]="menuActive">
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/flights" routerLinkActive="active">Flights</a></li>
+      <li><a routerLink="/bookings" routerLinkActive="active">Bookings</a></li>
+      <li><a routerLink="/account" routerLinkActive="active">My Account</a></li>
+      <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    </ul>
+    <div class="navbar-toggle" (click)="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>
+<!-- </ng-template> -->
