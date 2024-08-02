@@ -9,12 +9,16 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

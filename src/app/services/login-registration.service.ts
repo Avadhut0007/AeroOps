@@ -24,5 +24,9 @@ export class LoginRegistrationService {
     );
   }
 
+  sendPasswordResetLink(emailId: string): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/forgotPassword`, { emailId });
+  }
+
 
 }
