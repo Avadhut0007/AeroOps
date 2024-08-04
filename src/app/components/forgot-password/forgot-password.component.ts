@@ -24,13 +24,27 @@ export class ForgotPasswordComponent implements OnInit{
       this.authService.sendPasswordResetLink(emailId)
         .subscribe(
           response => {
-            alert('Reset link sent successfully');
-            console.log('Reset link sent successfully', response);
+            if (response.success) {
+              alert('Reset link sent successfully');
+            } else {
+              alert('Email ID not found');
+            }
           },
+          error => {
+            console.error('Error from server:', error);
+            if (error.status === 200 && error.error === 'Email ID not found') {
+              alert('Email ID not found');
+            } else {
+              alert('Sucess');
+            }
+          }
         );
-    }else{
-      alert('Reset link sent successfully');
-      }
+    } else {
+      alert('Please enter a valid email ID');
     }
+  }
+  
+  
+  
   }
 
