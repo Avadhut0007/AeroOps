@@ -53,9 +53,7 @@ export class ForgotPasswordComponent implements OnInit{
             }
           }
         );
-    } else {
-      alert('Please enter a valid email ID');
-    }
+    } 
   }
   
   

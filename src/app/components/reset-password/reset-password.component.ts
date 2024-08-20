@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -16,7 +17,8 @@ export class ResetPasswordComponent implements OnInit{
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private snakBar:MatSnackBar
   ) {
     this.resetPasswordForm = this.fb.group({
       newPassword: ['', [Validators.required, Validators.minLength(6)]]
@@ -24,7 +26,7 @@ export class ResetPasswordComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // Get the token from the URL
+    // Getting the token from the URL
     this.token = this.route.snapshot.queryParamMap.get('token');
   }
 
@@ -34,11 +36,24 @@ export class ResetPasswordComponent implements OnInit{
       this.http.post('http://localhost:8080/user/resetPassword', { token: this.token, newPassword })
         .subscribe(
           response => {
-            alert('Password reset successfully');
+            this.snakBar.open('Password reset successfully','Close',{
+              duration:5000,
+              verticalPosition:'top',
+              horizontalPosition:'center'
+            });
+            // alert('Password reset successfully');
             this.router.navigate(['/login']);
           },
           error => {
-            this.router.navigate(['/login']);
+            const snackBarRef = this.snakBar.open('Password reset successfully', 'Close', {
+              duration: 5000,
+              verticalPosition: 'top',
+              horizontalPosition: 'center'
+            });
+            snackBarRef.afterDismissed().subscribe(() => {
+              this.router.navigate(['/login']);
+            });
+            // this.router.navigate(['/login']);
             console.error('Error:', error);
           }
         );
