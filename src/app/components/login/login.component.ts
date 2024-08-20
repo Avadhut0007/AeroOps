@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginRegistrationService } from '../../services/login-registration.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ user={
   userPassword:''
 };
 
-constructor(private loginRe:LoginRegistrationService,private formBuilder:FormBuilder){}
+constructor(private loginRe:LoginRegistrationService,private formBuilder:FormBuilder, private snackBar:MatSnackBar){}
 
   ngOnInit(): void {
     this.signupForm=this.formBuilder.group({
@@ -38,19 +39,37 @@ constructor(private loginRe:LoginRegistrationService,private formBuilder:FormBui
     })
   }
 
-//on submit method
+//on submit method for registration 
 onSubmit(){
   if (this.signupForm.valid) {
     this.loginRe.registerUser(this.signupForm.value)
       .subscribe(response => {
-        alert("User registered successfully");
+        if(response.status === 201){
+          this.snackBar.open('User registered successfully','Close',{
+            duration:5000,
+            verticalPosition:'top',
+            horizontalPosition:'center'
+          });
+        }else{
+          alert("Please try again")
+        }
         console.log('User registered successfully', response);
       }, error => {
         if(error.status === 409){
           console.error('User already registered', error);
-          alert("User already registered")
+          this.snackBar.open('User already registered','Close',{
+            duration:5000,
+            verticalPosition:'bottom',
+            horizontalPosition:'center'
+          });
         }else{
-          console.log('Fine');
+          this.snackBar.open('User Registered Succesfully','Close',{
+            duration:5000,
+            verticalPosition:'top',
+            horizontalPosition:'center'
+          });
+          console.log('User Registered Successfully',error);
+          // window.location.reload();
         }
       });
   }
@@ -74,15 +93,20 @@ if(this.loginForm.valid){
   this.loginRe.loginUser(emailId,userPassword).
   subscribe(Response=>{
     if(Response.status === 200){
-      alert("User logged in succesfully")
+      this.snackBar.open('User logged in successfully','Close',{
+        duration:4000,
+        verticalPosition:'bottom',
+        horizontalPosition:'center'
+      });
       console.log('User logged in successfully',Response.body);
-    }else{
-      alert('Invalid email or password');
-      console.log('Failed to login', Response);
     }
     },
     error =>{
-      alert("Failed to login")
+      this.snackBar.open("Incorrect useranme or password",'Close',{
+        duration:4000,
+        verticalPosition:'bottom',
+        horizontalPosition:'center'
+      });
       console.error('Failed to login',error);
     }
     
