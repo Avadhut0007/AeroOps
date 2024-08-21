@@ -5,7 +5,7 @@
     <div class="form-container sign-up">
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <h1><b>Create Account</b></h1>
-            <span>or use your email for registeration</span>
+            <span>use your email for registeration</span>
             <!-- <input type="text" placeholder="Name" [(ngModel)]="user.firstName" name="firstName">
             <input type="email" placeholder="Email" [(ngModel)]="user.emailId" name="emailId">
             <input type="password" placeholder="Password" [(ngModel)]="user.userPassword" name="userPassword">
@@ -44,7 +44,7 @@
     <div class="form-container sign-in">
         <form  [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
             <h1><b>Sign In</b></h1>
-            <span>or use your email password</span>
+            <span>use your email password</span>
             
             <div>
                 <input type="email" placeholder="Enter Your Email Id" formControlName="emailId">
