@@ -14,6 +14,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { FlightsComponent } from './components/flights/flights.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { DropdownModule } from 'primeng/dropdown';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     HttpClientModule,
     NgxSkeletonLoaderModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    
+    DropdownModule
+   
   ],
   providers: [
     provideAnimationsAsync()
