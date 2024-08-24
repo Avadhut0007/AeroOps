@@ -15,23 +15,36 @@ import { FlightsComponent } from './components/flights/flights.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { DropdownModule } from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ManageFlightsComponent } from './components/adminPanel/manage-flights/manage-flights.component';
 
 
-@NgModule({ declarations: [
+@NgModule({ 
+    declarations: [
         AppComponent,
         NavbarComponent,
         LoginComponent,
         ForgotPasswordComponent,
         ResetPasswordComponent,
-        FlightsComponent
+        FlightsComponent,
+        ManageFlightsComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgxSkeletonLoaderModule,
-        MatSnackBarModule,
-        DropdownModule], providers: [
+    bootstrap: 
+    [AppComponent], 
+    
+    imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxSkeletonLoaderModule,
+    MatSnackBarModule,
+    DropdownModule,
+    BrowserAnimationsModule,
+    
+],
+        
+        providers: [
         provideAnimationsAsync(),
         provideHttpClient(withInterceptorsFromDi())
     ] })

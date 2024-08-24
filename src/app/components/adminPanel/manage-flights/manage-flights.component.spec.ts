@@ -11,7 +11,7 @@ describe('ManageFlightsComponent', () => {
       declarations: [ManageFlightsComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ManageFlightsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
