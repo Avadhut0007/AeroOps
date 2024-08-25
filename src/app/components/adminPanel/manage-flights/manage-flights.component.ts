@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-manage-flights',
@@ -8,22 +8,36 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class ManageFlightsComponent implements OnInit {
-  cities: City[] | undefined;
+  flightStatus: Status[] | undefined;
+  classType:Type[] |undefined;
 
-  selectedCity: City | undefined;
+  selectedFlightStatus: Status | undefined;
+  selectedClassType: Type|undefined;
+
+  date2: Date | undefined;
+  time: Date[] | undefined;
 
   ngOnInit() {
-      this.cities = [
-          { name: 'New York', code: 'NY' },
-          { name: 'Rome', code: 'RM' },
-          { name: 'London', code: 'LDN' },
-          { name: 'Istanbul', code: 'IST' },
-          { name: 'Paris', code: 'PRS' }
+      this.flightStatus = [
+          { name: 'On Time', code: 'OT' },
+          { name: 'Delayed', code: 'D' },
+          { name: 'Cancelled', code: 'C' }
+         
       ];
+
+      this.classType=[
+        {name1:'Economy' , code1:'E'},
+        {name1:'Business' , code1:'B'},
+        {name1:'First Class' , code1:'FC'},
+      ]
   }
 }
 
-interface City {
+interface Status {
   name: string;
   code: string;
+}
+interface Type {
+  name1: string;
+  code1: string;
 }

@@ -17,7 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManageFlightsComponent } from './components/adminPanel/manage-flights/manage-flights.component';
-
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({ 
     declarations: [
@@ -41,7 +41,7 @@ import { ManageFlightsComponent } from './components/adminPanel/manage-flights/m
     MatSnackBarModule,
     DropdownModule,
     BrowserAnimationsModule,
-    
+    CalendarModule
 ],
         
         providers: [

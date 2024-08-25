@@ -1,4 +1,5 @@
 <div class="container">
+  <label>Schedule Flight</label>
     <div class="box">
       <div class="form-container">
         <form class="flight-form">
@@ -6,11 +7,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="from">Enter From</label>
-              <input type="text" id="from" placeholder="Enter from" formControlName="from">
+              <input type="text" id="from" placeholder="Enter from" >
             </div>
             <div class="form-group">
               <label for="to">Enter To</label>
-              <input type="text" id="to" placeholder="Enter to" formControlName="to">
+              <input type="text" id="to" placeholder="Enter to" >
             </div>
             <div class="form-group">
               <label for="date">Enter Departure</label>
@@ -18,57 +19,59 @@
             </div>
           </div>
           
+          
           <div class="form-row">
             <div class="form-group">
               <label for="price">Enter Price</label>
-              <input type="number" id="price" placeholder="Enter price" formControlName="price">
+              <input type="number" id="price" placeholder="Enter price" >
             </div>
             <div class="form-group">
               <label for="flight-number">Enter Flight Number</label>
-              <input type="text" id="flight-number" placeholder="Enter flight number" formControlName="flight-number">
+              <input type="text" id="flight-number" placeholder="Enter flight number" >
             </div>
             <div class="form-group">
               <label for="airline-name">Enter Airline Name</label>
-              <input type="text" id="airline-name" placeholder="Enter airline name" formControlName="airline-name">
+              <input type="text" id="airline-name" placeholder="Enter airline name" >
             </div>
           </div>
   
           <div class="form-row">
             <div class="form-group">
               <label for="capacity">Enter Capacity</label>
-              <input type="number" id="capacity" placeholder="Enter capacity" formControlName="capacity">
+              <input type="number" id="capacity" placeholder="Enter capacity" >
             </div>
             <div class="form-group">
               <label for="departure-tim">Departure Time</label>
-              <input type="time" id="departure-time" placeholder="Departure Time" formControlName="departure-time">
+              <input type="time" id="departure-time" placeholder="Departure Time" >
             </div>
             <div class="form-group">
               <label for="arrival-time">Arrival Time</label>
-              <input type="time" id="arrival-time" placeholder="Arrival Time" formControlName="arrival-time">
+              <input type="time" id="arrival-time" placeholder="Arrival Time" >
             </div>
         </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="arrival-time">Total Flight Duration</label>
-              <input type="text" id="total-flight-duration" placeholder="Enter total flight duration" formControlName="duration">
+              <input type="text" id="total-flight-duration" placeholder="Enter total flight duration" >
             </div>
           
             <div class="form-group">
               <label for="airport-name">Airport Name</label>
-              <input type="text" id="airport-name" placeholder="Enter airport name" formControlName="airport-name">
+              <input type="text" id="airport-name" placeholder="Enter airport name" >
             </div>
-          </div>
 
           <div class="form-group">
             <label for="status">Flight Status</label>
-            <select id="status" formControlName="status">
+            <select id="status" formControlName="status" placeholder="Enter Flight Status">
               <option value="on-time">On Time</option>
               <option value="delayed">Delayed</option>
               <option value="canceled">Canceled</option>
             </select>
           </div>
+          </div>
 
+          <div class="form-row">
           <div class="form-group">
             <label for="class-type">Class Type</label>
             <select id="class-type" formControlName="classType">
@@ -77,19 +80,10 @@
               <option value="first-class">First Class</option>
             </select>
           </div>
-
-          <div class="form-group">
-            <label for="helli">Hello jiiiiiiiii</label>
-            <p-dropdown 
-                [options]="cities" 
-                [(ngModel)]="selectedCity" 
-                optionLabel="name"
-                placeholder="Select a City" />
         </div>
-          
-          
-          
-    
+
+        
+
           <button type="submit">Submit</button>
         </form>
       </div>

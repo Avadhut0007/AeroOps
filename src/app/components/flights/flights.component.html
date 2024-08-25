@@ -1,8 +1,47 @@
-<div class="form-group">
-    <label for="helli">Hello jiiiiiiiii</label>
-    <p-dropdown 
-        [options]="cities" 
-        [(ngModel)]="selectedCity" 
-        optionLabel="name"
-        placeholder="Select a City" />
+<div class="container">
+    <h2>Schedule Flight</h2>
+      <div class="box">
+        <div class="form-container">
+          <form class="flight-form">
+
+            <div class="form-row">
+                <div class="form-group">
+                  <label for="from">Enter From</label>
+                  <input type="text" id="from" placeholder="Enter from">
+                </div>
+                <div class="form-group">
+                  <label for="to">Enter To</label>
+                  <input type="text" id="to" placeholder="Enter to" >
+                </div>
+                <div class="form-group">
+                  <label for="date">Enter Departure</label>
+                  <input type="date" id="date" >
+                </div>
+              </div>
+
+                <div class="form-group">
+                    <div class="child">
+                    <label for="helli">Hello jiiiiiiiii</label><br>
+                    <p-dropdown 
+                        [options]="cities" 
+                        [(ngModel)]="selectedCity" 
+                        optionLabel="name"
+                        placeholder="Select a City" 
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="calendar-timeonly"> Time Only </label>
+                  <p-calendar 
+                      inputId="calendar-timeonly" 
+                      [(ngModel)]="time" 
+                      [timeOnly]="true" />
+              </div>
+
+              
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+        </div>
 </div>

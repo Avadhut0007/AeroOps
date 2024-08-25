@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-flights',
@@ -9,6 +9,8 @@ export class FlightsComponent implements OnInit {
   cities: City[] | undefined;
 
   selectedCity: City | undefined;
+time: any;
+date2: any;
 
   ngOnInit() {
       this.cities = [
