@@ -24,6 +24,11 @@
     padding: 30px;
   }
   
+  #heading{
+    font-size: 2rem;
+    margin-bottom: 8px;
+    font-weight: 550;
+  }
   .form-container {
     width: 100%;
   }

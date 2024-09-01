@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ManageFlightsService } from '../../../services/admin/manage-flights.service';
 
 @Component({
   selector: 'app-manage-flights',
@@ -7,37 +9,36 @@ import { Component, OnInit} from '@angular/core';
 })
 
 
-export class ManageFlightsComponent implements OnInit {
-  flightStatus: Status[] | undefined;
-  classType:Type[] |undefined;
+export class ManageFlightsComponent {
+  FlightDetailsForm!: FormGroup;
 
-  selectedFlightStatus: Status | undefined;
-  selectedClassType: Type|undefined;
+  constructor(private manageFlightService:ManageFlightsService){}
 
-  date2: Date | undefined;
-  time: Date[] | undefined;
+  flightDetails={
+    DestinationFrom:'',
+    DestinationTo:'',
+    DepartureDate:'',
+    TicketPrice:'',
+    FlightNumber:'',
+    AirlineName:'',
+    Capacity:'',
+    DepartureTime:'',
+    ArrivalTime:'',
+    FlightDuration:'',
+    AirportName:'',
+    FlightStatus:'',
+    ClassType:''
+  };
 
-  ngOnInit() {
-      this.flightStatus = [
-          { name: 'On Time', code: 'OT' },
-          { name: 'Delayed', code: 'D' },
-          { name: 'Cancelled', code: 'C' }
-         
-      ];
-
-      this.classType=[
-        {name1:'Economy' , code1:'E'},
-        {name1:'Business' , code1:'B'},
-        {name1:'First Class' , code1:'FC'},
-      ]
-  }
+onSubmit() {
+  this.manageFlightService.addFlightDetails(this.FlightDetailsForm.value)
+  .subscribe(response => {
+    console.log(response);
+  });
+  
 }
 
-interface Status {
-  name: string;
-  code: string;
+  
+
 }
-interface Type {
-  name1: string;
-  code1: string;
-}
+
