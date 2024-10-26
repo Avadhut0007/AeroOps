@@ -24,18 +24,20 @@ user={
   userPassword:''
 };
 
-constructor(private loginRe:LoginRegistrationService,private formBuilder:FormBuilder, private snackBar:MatSnackBar){}
+constructor(private loginRe:LoginRegistrationService,
+            private formBuilder:FormBuilder, 
+            private snackBar:MatSnackBar){}
 
   ngOnInit(): void {
     this.signupForm=this.formBuilder.group({
       firstName:['',Validators.required],
       emailId:['',[Validators.required,Validators.email]],
-      userPassword:['',[Validators.required,Validators.minLength(6)]]
+      userPassword:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
     })
 
     this.loginForm=this.formBuilder.group({
       emailId:['',[Validators.required,Validators.email]],
-      userPassword:['',[Validators.required,Validators.minLength(6)]]
+      userPassword:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
     })
   }
 

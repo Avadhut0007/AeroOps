@@ -29,7 +29,15 @@
                 <input type="password" placeholder="Enter Your Password" formControlName="userPassword">
                 <div *ngIf="signupForm.get('userPassword')?.invalid && (signupForm.get('userPassword')?.dirty || signupForm.get('userPassword')?.touched)" class="error-message">
                   <div *ngIf="signupForm.get('userPassword')?.errors?.['required']">Password is required.</div>
-                  <div *ngIf="signupForm.get('userPassword')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                  <div *ngIf="signupForm.get('userPassword')?.errors?.['pattern']"> Password should contain:
+                    <ul>
+                      <li>At least 8 characters in length</li>
+                      <li>Lowercase letters</li>
+                      <li>Uppercase letters</li>
+                      <li>Numbers</li>
+                      <li>Special characters</li>
+                    </ul>
+                </div>
                 </div>
               </div>
               
@@ -58,7 +66,15 @@
                 <input type="password" placeholder="Enter Your Password" formControlName="userPassword">
                 <div *ngIf="loginForm.get('userPassword')?.invalid && (loginForm.get('userPassword')?.dirty || loginForm.get('userPassword')?.touched)" class="error-message">
                     <div *ngIf="loginForm.get('userPassword')?.errors?.['required']">Password is required</div>
-                    <div *ngIf="loginForm.get('userPassword')?.errors?.['minlength']">Password must be 6 char long</div>
+                    <div *ngIf="loginForm.get('userPassword')?.errors?.['pattern']">Password is not matching the pattern:
+                        <ul>
+                            <li>At least 8 characters in length</li>
+                            <li>Lowercase letters</li>
+                            <li>Uppercase letters</li>
+                            <li>Numbers</li>
+                            <li>Special characters</li>
+                          </ul>
+                    </div>
                 </div>
             </div>
 
