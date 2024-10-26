@@ -11,6 +11,6 @@ export class ManageFlightsService {
   private apiUrl='http://localhost:8080/ManageFlights'
 
   addFlightDetails(flightDetails : any){
-    return this.httpClient.post(`${this.apiUrl}/addFlights`,flightDetails);
+    return this.httpClient.post(`${this.apiUrl}/addFlights`,flightDetails, { observe: 'response' });
   }
 }
