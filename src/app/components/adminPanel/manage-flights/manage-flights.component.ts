@@ -18,7 +18,7 @@ export class ManageFlightsComponent implements OnInit {
   flightDetails ={
     departureLocation: '',
     arrivalLocation:'',
-    // depatureDate:'',
+    depatureDate:'',
     arrivalDate:'',
     ticketPrice:'',
     flightNumber:'',
@@ -44,7 +44,7 @@ export class ManageFlightsComponent implements OnInit {
     this.FlightDetailsForm = this.fb.group({
       departureLocation: ['', Validators.required],
       arrivalLocation: ['', Validators.required],
-      // depatureDate: ['', Validators.required],
+      depatureDate: ['', Validators.required],
       arrivalDate: ['', Validators.required],
       ticketPrice: ['', Validators.required],
       flightNumber: ['', Validators.required],
