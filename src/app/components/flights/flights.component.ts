@@ -1,4 +1,6 @@
+import { Time } from '@angular/common';
 import {  Component, OnInit } from '@angular/core';
+import { ManageFlightsService } from '../../services/admin/manage-flights.service';
 
 @Component({
   selector: 'app-flights',
@@ -6,24 +8,34 @@ import {  Component, OnInit } from '@angular/core';
   styleUrl: './flights.component.css'
 })
 export class FlightsComponent implements OnInit {
-  cities: City[] | undefined;
+  flightDetails :FlightDetails[]=[];
 
-  selectedCity: City | undefined;
-time: any;
-date2: any;
+  constructor(
+    private manageFlightsServices:ManageFlightsService
+  ){}
 
   ngOnInit() {
-      this.cities = [
-          { name: 'New York', code: 'NY' },
-          { name: 'Rome', code: 'RM' },
-          { name: 'London', code: 'LDN' },
-          { name: 'Istanbul', code: 'IST' },
-          { name: 'Paris', code: 'PRS' }
-      ];
-  }
+    this.manageFlightsServices.getFlightDetails().subscribe(Response => { this.flightDetails = Response })
 }
 
-interface City {
-  name: string;
-  code: string;
+}
+
+export class FlightDetails{
+  constructor(
+    public departureLocation: string,
+    public arrivalLocation:string,
+    public depatureDate:Date,
+    public arrivalDate:Date,
+    public ticketPrice:number,
+    public flightNumber:number,
+    public airlineName:string,
+    public capacity:number,
+    public depatureTime:Time,
+    public arrivalTime:Time,
+    public flightDuration:string,
+    public airportName:string,
+    public flightStatus:string,
+    public classType:string,
+  )
+  {}
 }
