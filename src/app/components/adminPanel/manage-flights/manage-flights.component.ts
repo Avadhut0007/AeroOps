@@ -50,8 +50,8 @@ export class ManageFlightsComponent implements OnInit {
       flightNumber: ['', Validators.required],
       airlineName: ['', Validators.required],
       capacity: ['', Validators.required],
-      // departureTime: ['', Validators.required],
-      // arrivalTime: ['', Validators.required],
+      depatureTime: ['', Validators.required],
+      arrivalTime: ['', Validators.required],
       flightDuration: ['', Validators.required],
       airportName: ['', Validators.required],
       flightStatus: ['', Validators.required],
@@ -59,27 +59,44 @@ export class ManageFlightsComponent implements OnInit {
     });
   }
 
+
   onSubmit() {
     if (this.FlightDetailsForm.valid) {
-      const formattedDate = this.datePipe.transform(this.FlightDetailsForm.value.departureDate, 'yyyy-MM-dd');
+      const formattedDepartureDate = this.datePipe.transform(this.FlightDetailsForm.value.departureDate, 'yyyy-MM-dd');
+      const formattedArrivalDate = this.datePipe.transform(this.FlightDetailsForm.value.arrivalDate, 'yyyy-MM-dd');
+      
+      
       const flightDetails = {
         ...this.FlightDetailsForm.value,
-        departureDate: formattedDate,
-        arrivalDate:formattedDate
+        departureDate: formattedDepartureDate,
+        arrivalDate: formattedArrivalDate,
+        
       };
-      this.manageFlightService.addFlightDetails(this.FlightDetailsForm.value)
+  
+      
+      this.manageFlightService.addFlightDetails(flightDetails)
         .subscribe((response) => {
-          if(response.status === 200){
-            this.snackBar.open('Data added successfully','Close',{
-              duration:5000,
-              verticalPosition:'top',
-              horizontalPosition:'center'
-            }),
-          console.log('Flight details added successfully:', response);
-          this.FlightDetailsForm.reset(); // Reset the form after submission
-        }});
+          if (response.status === 200) {
+            this.snackBar.open('Data added successfully', 'Close', {
+              duration: 5000,
+              verticalPosition: 'top',
+              horizontalPosition: 'center'
+            });
+            console.log('Flight details added successfully:', response);
+            this.FlightDetailsForm.reset(); // Reset the form after submission
+          }
+          else{
+            this.snackBar.open('Failed to add data', 'Close', {
+              duration: 5000,
+              verticalPosition: 'top',
+              horizontalPosition: 'center'
+            });
+          }
+        },
+      );
     }
   }
+  
   
   
 }
