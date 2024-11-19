@@ -1,0 +1,59 @@
+<app-navbar/>
+<div class="container">
+    <div class="box">
+
+        <!-- <div class="flight-search"> -->
+            <div class="travel-options">
+              <mat-radio-group>
+                <mat-radio-button value="oneWay" checked>One Way</mat-radio-button>
+                <mat-radio-button value="roundTrip">Round Trip</mat-radio-button>
+                <mat-radio-button value="multiCity">Multi City</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          
+            <div class="flight-details">
+              <div class="location">
+                <mat-form-field appearance="outline">
+                  <mat-label>From</mat-label>
+                  <input matInput placeholder="Enter city or airport">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>To</mat-label>
+                  <input matInput placeholder="Enter city or airport">
+                </mat-form-field>
+              </div>
+          
+              <div class="dates">
+                <mat-form-field appearance="outline">
+                  <mat-label>Departure</mat-label>
+                  <input matInput [matDatepicker]="departurePicker" placeholder="Select a date">
+                  <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #departurePicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Return</mat-label>
+                  <input matInput [matDatepicker]="returnPicker" placeholder="Select a date">
+                  <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #returnPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          
+            <div class="special-fares">
+              <mat-radio-button >Regular</mat-radio-button> <!--color="primary"-->
+              <button mat-raised-button>Student</button>
+              <button mat-raised-button>Senior Citizen</button>
+              <button mat-raised-button>Armed Forces</button>
+              <button mat-raised-button>Doctor and Nurses</button>
+            </div>
+          
+            <div class="search-btn">
+              <button mat-raised-button color="accent">SEARCH</button>
+            </div>
+          </div>
+
+    <!-- </div> -->
+</div>
+
+
+  

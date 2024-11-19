@@ -6,6 +6,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { FlightsComponent } from './components/flights/flights.component';
 import { ManageFlightsComponent } from './components/adminPanel/manage-flights/manage-flights.component';
+import { FlightSearchComponent } from './components/flight-search/flight-search.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
 {path:'forgot-password',component:ForgotPasswordComponent},
 {path:'reset-password',component:ResetPasswordComponent},
 {path:'flights',component:FlightsComponent},
-{path:'manage-flights',component:ManageFlightsComponent}
+{path:'manage-flights',component:ManageFlightsComponent},
+{path:'flight-search',component:FlightSearchComponent}
 ];
 
 @NgModule({

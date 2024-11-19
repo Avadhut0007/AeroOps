@@ -18,6 +18,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManageFlightsComponent } from './components/adminPanel/manage-flights/manage-flights.component';
 import { CalendarModule } from 'primeng/calendar';
+import { FlightSearchComponent } from './components/flight-search/flight-search.component';
+
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({ 
     declarations: [
@@ -27,7 +35,8 @@ import { CalendarModule } from 'primeng/calendar';
         ForgotPasswordComponent,
         ResetPasswordComponent,
         FlightsComponent,
-        ManageFlightsComponent
+        ManageFlightsComponent,
+        FlightSearchComponent,
     ],
     bootstrap: 
     [AppComponent], 
@@ -41,7 +50,14 @@ import { CalendarModule } from 'primeng/calendar';
     MatSnackBarModule,
     DropdownModule,
     BrowserAnimationsModule,
-    CalendarModule
+    CalendarModule,
+
+    MatRadioModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 ],
         
         providers: [
