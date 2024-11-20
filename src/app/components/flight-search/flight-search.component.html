@@ -13,13 +13,42 @@
           
             <div class="flight-details">
               <div class="location">
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="dropdown-search">
                   <mat-label>From</mat-label>
-                  <input matInput placeholder="Enter city or airport">
+                  <mat-select [(ngModel)]="selectedFrom" (selectionChange)="onFromSelected($event)">
+                    <mat-select-trigger>
+                      <input
+                        matInput
+                        type="text"
+                        placeholder="Search city or airport"
+                        [value]="searchFrom"
+                        (input)="filterFrom($event)"
+                      />
+                    </mat-select-trigger>
+                    <mat-option *ngFor="let location of filteredFromOptions" 
+                    [value]="location">
+                      {{ location }}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
+                
                 <mat-form-field appearance="outline">
                   <mat-label>To</mat-label>
-                  <input matInput placeholder="Enter city or airport">
+                  <mat-select [(ngModel)]="selectedFrom" (selectionChange)="onToSelected($event)">
+                    <mat-select-trigger>
+                      <input
+                        matInput
+                        type="text"
+                        placeholder="Search city or airport"
+                        [value]="searchTo"
+                        (input)="filterTo($event)"
+                      />
+                    </mat-select-trigger>
+                    <mat-option *ngFor="let location of filteredToOptions" 
+                    [value]="location">
+                      {{ location }}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
               </div>
           

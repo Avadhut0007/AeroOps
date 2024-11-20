@@ -67,4 +67,20 @@
     font-size: 18px;
     font-weight: bold;
   }
+
+  .dropdown-search mat-select {
+    width: 100%;
+  }
+  
+  .dropdown-search mat-select-trigger {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+  }
+  
   
