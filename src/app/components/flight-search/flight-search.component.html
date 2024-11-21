@@ -1,38 +1,124 @@
-<app-navbar/>
+<app-navbar />
 <div class="container">
-    <div class="box">
+  <div class="box">
+    <!-- <div class="flight-search"> -->
+    <div class="travel-options">
+      <mat-radio-group>
+        <mat-radio-button value="oneWay" checked>One Way</mat-radio-button>
+        <mat-radio-button value="roundTrip">Round Trip</mat-radio-button>
+        <mat-radio-button value="multiCity">Multi City</mat-radio-button>
+      </mat-radio-group>
+    </div>
 
-        <!-- <div class="flight-search"> -->
-            <div class="travel-options">
-              <mat-radio-group>
-                <mat-radio-button value="oneWay" checked>One Way</mat-radio-button>
-                <mat-radio-button value="roundTrip">Round Trip</mat-radio-button>
-                <mat-radio-button value="multiCity">Multi City</mat-radio-button>
-              </mat-radio-group>
-            </div>
-          
-            <div class="flight-details">
-              <div class="location">
-                <mat-form-field appearance="outline" class="dropdown-search">
-                  <mat-label>From</mat-label>
-                  <mat-select [(ngModel)]="selectedFrom" (selectionChange)="onFromSelected($event)">
-                    <mat-select-trigger>
-                      <input
-                        matInput
-                        type="text"
-                        placeholder="Search city or airport"
-                        [value]="searchFrom"
-                        (input)="filterFrom($event)"
-                      />
-                    </mat-select-trigger>
-                    <mat-option *ngFor="let location of filteredFromOptions" 
-                    [value]="location">
-                      {{ location }}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
+    <div class="flight-details">
+      <div class="location">
+        <mat-form-field appearance="outline">
+          <mat-label>From</mat-label>
+          <input
+            type="text"
+            matInput
+            [matAutocomplete]="fromAuto"
+            [(ngModel)]="searchTermFrom"
+            (ngModelChange)="filterAirportsFrom()"
+            placeholder="Search for a city or airport"
+          />
+          <mat-autocomplete #fromAuto="matAutocomplete">
+            <!-- Search Results -->
+            <ng-container *ngIf="filteredAirportsFrom.length">
+              <mat-optgroup label="Search Results">
+                <mat-option
+                  *ngFor="let airport of filteredAirportsFrom"
+                  [value]="airport.name"
+                  (click)="onFromSelected(airport)"
+                >
+                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                </mat-option>
+              </mat-optgroup>
+            </ng-container>
+
+            <!-- Recent Searches -->
+            <ng-container *ngIf="recentSearches.length">
+              <mat-optgroup label="Recent Searches">
+                <mat-option
+                  *ngFor="let airport of recentSearches"
+                  [value]="airport.name"
+                  (click)="onFromSelected(airport)"
+                >
+                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                </mat-option>
+              </mat-optgroup>
+            </ng-container>
+
+            <!-- Popular Cities -->
+            <ng-container *ngIf="popularCities.length">
+              <mat-optgroup label="Popular Cities">
+                <mat-option
+                  *ngFor="let airport of popularCities"
+                  [value]="airport.name"
+                  (click)="onFromSelected(airport)"
+                >
+                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                </mat-option>
+              </mat-optgroup>
+            </ng-container>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <!-- To Field -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>To</mat-label>
+          <input
+            type="text"
+            matInput
+            [matAutocomplete]="toAuto"
+            [(ngModel)]="searchTermTo"
+            (ngModelChange)="filterAirportsTo()"
+            placeholder="Search for a city or airport"
+          />
+          <mat-autocomplete #toAuto="matAutocomplete">
+            <!-- Search Results -->
+            <ng-container *ngIf="filteredAirportsTo.length">
+              <mat-optgroup label="Search Results">
+                <mat-option
+                  *ngFor="let airport of filteredAirportsTo"
+                  [value]="airport.name"
+                  (click)="onToSelected(airport)"
+                >
+                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                </mat-option>
+              </mat-optgroup>
+            </ng-container>
+
+            <!-- Recent Searches -->
+            <ng-container *ngIf="recentSearches.length">
+              <mat-optgroup label="Recent Searches">
+                <mat-option
+                  *ngFor="let airport of recentSearches"
+                  [value]="airport.name"
+                  (click)="onToSelected(airport)"
+                >
+                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                </mat-option>
+              </mat-optgroup>
+            </ng-container>
+
+            <!-- Popular Cities -->
+            <ng-container *ngIf="popularCities.length">
+              <mat-optgroup label="Popular Cities">
+                <mat-option
+                  *ngFor="let airport of popularCities"
+                  [value]="airport.name"
+                  (click)="onToSelected(airport)"
+                >
+                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                </mat-option>
+              </mat-optgroup>
+            </ng-container>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline">
                   <mat-label>To</mat-label>
                   <mat-select [(ngModel)]="selectedFrom" (selectionChange)="onToSelected($event)">
                     <mat-select-trigger>
@@ -49,41 +135,56 @@
                       {{ location }}
                     </mat-option>
                   </mat-select>
-                </mat-form-field>
-              </div>
-          
-              <div class="dates">
-                <mat-form-field appearance="outline">
-                  <mat-label>Departure</mat-label>
-                  <input matInput [matDatepicker]="departurePicker" placeholder="Select a date" [formControl]="departureControl">
-                  <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
-                  <mat-datepicker #departurePicker></mat-datepicker>
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                  <mat-label>Return</mat-label>
-                  <input matInput [matDatepicker]="returnPicker" placeholder="Select a date">
-                  <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
-                  <mat-datepicker #returnPicker></mat-datepicker>
-                </mat-form-field>
-              </div>
-            </div>
-          
-            <div class="special-fares">
-              <button mat-raised-button>Regular</button> <!--color="primary"-->
-              <button mat-raised-button>Student</button>
-              <button mat-raised-button>Senior Citizen</button>
-              <button mat-raised-button>Armed Forces</button>
-              <button mat-raised-button>Doctor and Nurses</button>
-            </div>
-          
-            <div class="search-btn">
-              <button mat-raised-button color="accent" (click)="getDepartureDate()">SEARCH</button>
-            </div>
-          </div>
+                </mat-form-field> -->
+      </div>
 
-    <!-- </div> -->
+      <div class="dates">
+        <mat-form-field appearance="outline">
+          <mat-label>Departure</mat-label>
+          <input
+            matInput
+            [matDatepicker]="departurePicker"
+            placeholder="Select a date"
+            [formControl]="departureControl"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="departurePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #departurePicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Return</mat-label>
+          <input
+            matInput
+            [matDatepicker]="returnPicker"
+            placeholder="Select a date"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="returnPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #returnPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="special-fares">
+      <button mat-raised-button>Regular</button>
+      <!--color="primary"-->
+      <button mat-raised-button>Student</button>
+      <button mat-raised-button>Senior Citizen</button>
+      <button mat-raised-button>Armed Forces</button>
+      <button mat-raised-button>Doctor and Nurses</button>
+    </div>
+
+    <div class="search-btn">
+      <button mat-raised-button color="accent" (click)="getDepartureDate()">
+        SEARCH
+      </button>
+    </div>
+  </div>
+
+  <!-- </div> -->
 </div>
-
-
-  

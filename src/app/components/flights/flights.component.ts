@@ -14,6 +14,24 @@ export class FlightsComponent implements OnInit {
     private manageFlightsServices:ManageFlightsService
   ){}
 
+  searchTerm: string = '';
+  
+  // Example data (replace this with data from your API)
+  recentSearches = [
+    { name: 'Pune, India', code: 'PNQ' },
+    { name: 'Shirdi, India', code: 'SAG' },
+  ];
+
+  popularCities = [
+    { name: 'Mumbai, India', code: 'BOM' },
+    { name: 'New Delhi, India', code: 'DEL' },
+  ];
+
+  filterAirports() {
+    // Logic to filter recentSearches and popularCities based on the search term
+    // This could involve an API call for live filtering
+  }
+
   ngOnInit() {
     this.manageFlightsServices.getFlightDetails().subscribe(Response => { this.flightDetails = Response })
 }

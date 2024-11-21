@@ -2,18 +2,34 @@
 <div class="container">
     <p id="header">Schedule Flight</p>
       <div class="box">
-        <div class="form-container">
-          
-          <form class="flight-form">
-            <ng-container *ngFor="let item of flightDetails">
-              {{item.airlineName}}
-              <br>
-              <!-- {{item.arrivalLocation}} -->
-            </ng-container>   
-                <button type="submit">Submit</button>
-            </form>
-            </div>
-        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>From</mat-label>
+          <input
+            type="text"
+            matInput
+            [matAutocomplete]="auto"
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="filterAirports()"
+            placeholder="Search for a city or airport"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <ng-container *ngIf="recentSearches.length">
+              <mat-optgroup label="Recent Searches">
+                <mat-option *ngFor="let airport of recentSearches" [value]="airport.name">
+                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                </mat-option>
+              </mat-optgroup>
+            </ng-container>
+            <ng-container *ngIf="popularCities.length">
+              <mat-optgroup label="Popular Cities">
+                <mat-option *ngFor="let airport of popularCities" [value]="airport.name">
+                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                </mat-option>
+              </mat-optgroup>
+            </ng-container>
+          </mat-autocomplete>
+        </mat-form-field>
+        
 
         
 </div>
