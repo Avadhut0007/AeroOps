@@ -55,10 +55,11 @@
               <div class="dates">
                 <mat-form-field appearance="outline">
                   <mat-label>Departure</mat-label>
-                  <input matInput [matDatepicker]="departurePicker" placeholder="Select a date">
+                  <input matInput [matDatepicker]="departurePicker" placeholder="Select a date" [formControl]="departureControl">
                   <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
                   <mat-datepicker #departurePicker></mat-datepicker>
                 </mat-form-field>
+                
                 <mat-form-field appearance="outline">
                   <mat-label>Return</mat-label>
                   <input matInput [matDatepicker]="returnPicker" placeholder="Select a date">
@@ -77,7 +78,7 @@
             </div>
           
             <div class="search-btn">
-              <button mat-raised-button color="accent">SEARCH</button>
+              <button mat-raised-button color="accent" (click)="getDepartureDate()">SEARCH</button>
             </div>
           </div>
 

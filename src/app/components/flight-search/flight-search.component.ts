@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-flight-search',
@@ -6,6 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './flight-search.component.css'
 })
 export class FlightSearchComponent {
+
+  departureControl = new FormControl();
+
+  getDepartureDate() {
+    console.log(this.departureControl.value); // This will return the selected date
+  }
 
   fromOptions: string[] = [
     'Pune, PNQ, Pune Airport India',
