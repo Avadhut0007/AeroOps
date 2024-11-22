@@ -1,0 +1,60 @@
+<div class="container">
+    <!-- Header Section -->
+    <header class="search-header">
+      <div class="trip-type">
+        <mat-radio-group>
+          <mat-radio-button value="one-way">One Way</mat-radio-button>
+          <mat-radio-button value="round-trip">Round Trip</mat-radio-button>
+          <mat-radio-button value="multi-city">Multi City</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="search-inputs">
+        <mat-form-field appearance="outline">
+          <mat-label>From</mat-label>
+          <mat-select placeholder="Select Departure">
+            <mat-option *ngFor="let location of locations" [value]="location">
+              {{ location }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>To</mat-label>
+          <mat-select placeholder="Select Destination">
+            <mat-option *ngFor="let location of locations" [value]="location">
+              {{ location }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Departure</mat-label>
+          <input matInput [matDatepicker]="departurePicker" placeholder="Select a date">
+          <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
+          <mat-datepicker #departurePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary">Search</button>
+    </header>
+  
+    <!-- Filter Section -->
+    <aside class="filters">
+      <h3>Popular Filters</h3>
+      <mat-checkbox>IndiGo</mat-checkbox>
+      <mat-checkbox>1 Stop</mat-checkbox>
+      <mat-checkbox>Morning Departures</mat-checkbox>
+    </aside>
+  
+    <!-- Results Section -->
+    <section class="results">
+      <div class="tabs">
+        <button mat-button>Cheapest</button>
+        <button mat-button>Fastest</button>
+        <button mat-button>You May Prefer</button>
+      </div>
+      <div class="flight-card" *ngFor="let flight of flights">
+        <h3>{{ flight.airline }}</h3>
+        <p>{{ flight.time }} - {{ flight.duration }}</p>
+        <p>{{ flight.price }}</p>
+      </div>
+    </section>
+  </div>
+  

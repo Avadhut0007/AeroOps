@@ -27,6 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FlightsDataComponent } from './components/flights-data/flights-data.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({ 
     declarations: [
@@ -38,6 +40,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
         FlightsComponent,
         ManageFlightsComponent,
         FlightSearchComponent,
+        FlightsDataComponent,
     ],
     bootstrap: 
     [AppComponent], 
@@ -61,6 +64,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatNativeDateModule,
     
     MatAutocompleteModule,
+    MatCheckboxModule
 ],
         
         providers: [
