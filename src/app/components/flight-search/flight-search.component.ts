@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 export class FlightSearchComponent {
 
    departureControl = new FormControl();
+selectedFareType: any;
 
    getDepartureDate() {
      console.log(this.departureControl.value); // This will return the selected date

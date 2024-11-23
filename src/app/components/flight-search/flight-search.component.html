@@ -4,7 +4,7 @@
     <!-- <div class="flight-search"> -->
     <div class="travel-options">
       <mat-radio-group>
-        <mat-radio-button value="oneWay" checked>One Way</mat-radio-button>
+        <mat-radio-button value="oneWay">One Way</mat-radio-button>
         <mat-radio-button value="roundTrip">Round Trip</mat-radio-button>
         <mat-radio-button value="multiCity">Multi City</mat-radio-button>
       </mat-radio-group>
@@ -170,14 +170,50 @@
       </div>
     </div>
 
-    <div class="special-fares">
-      <button mat-raised-button>Regular</button>
-      <!--color="primary"-->
-      <button mat-raised-button>Student</button>
-      <button mat-raised-button>Senior Citizen</button>
-      <button mat-raised-button>Armed Forces</button>
-      <button mat-raised-button>Doctor and Nurses</button>
+    <!-- <div class="special-fares">    
+      <mat-radio-button>Regular</mat-radio-button>
+      <mat-radio-button>Student</mat-radio-button>
+      <mat-radio-button>Senior Citizen</mat-radio-button>
+      <mat-radio-button>Armed Forces</mat-radio-button>
+      <mat-radio-button>Doctor and Nurses</mat-radio-button>
+  
+    </div> -->
+
+    <div class="fare-type-tabs">
+      <mat-radio-group [(ngModel)]="selectedFareType">
+        <mat-radio-button class="tab-option" value="regular">
+          <div>
+            <h4>Regular</h4>
+            <p>Regular fares</p>
+          </div>
+        </mat-radio-button>
+        <mat-radio-button class="tab-option" value="student">
+          <div>
+            <h4>Student</h4>
+            <p>Extra discounts/baggage</p>
+          </div>
+        </mat-radio-button>
+        <mat-radio-button class="tab-option" value="senior">
+          <div>
+            <h4>Senior Citizen</h4>
+            <p>Up to ₹600 off</p>
+          </div>
+        </mat-radio-button>
+        <mat-radio-button class="tab-option" value="armed-forces">
+          <div>
+            <h4>Armed Forces</h4>
+            <p>Up to ₹600 off</p>
+          </div>
+        </mat-radio-button>
+        <mat-radio-button class="tab-option" value="doctor-nurses">
+          <div>
+            <h4>Doctor and Nurses</h4>
+            <p>Up to ₹600 off</p>
+          </div>
+        </mat-radio-button>
+      </mat-radio-group>
     </div>
+    
 
     <div class="search-btn">
       <button mat-raised-button color="accent" (click)="getDepartureDate()">
