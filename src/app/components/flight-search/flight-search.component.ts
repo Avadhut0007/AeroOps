@@ -125,4 +125,33 @@ selectedFareType: any;
   onToSelected(selectedAirport: any) {
     console.log('Selected To:', selectedAirport);
   }
+
+
+
+
+
+
+
+  adults: number = 1;
+  children: number = 0;
+  infants: number = 0;
+  travelClass: string = 'Economy/Premium Economy';
+
+  adultNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, '>9'];
+  childNumbers = [0, 1, 2, 3, 4, 5, 6, '>6'];
+  infantNumbers = [0, 1, 2, 3, 4, 5, 6, '>6'];
+  travelClasses = ['Economy/Premium Economy', 'Premium Economy', 'Business', 'First Class'];
+
+  get totalPassengers(): number {
+    return this.adults + this.children + this.infants;
+  }
+
+  applySelection() {
+    console.log('Selected:', {
+      adults: this.adults,
+      children: this.children,
+      infants: this.infants,
+      travelClass: this.travelClass,
+    });
+  }
 }

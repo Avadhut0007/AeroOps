@@ -30,6 +30,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FlightsDataComponent } from './components/flights-data/flights-data.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatMenuModule} from '@angular/material/menu';
+
 @NgModule({ 
     declarations: [
         AppComponent,
@@ -64,7 +67,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatNativeDateModule,
     
     MatAutocompleteModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+
+    MatButtonToggleModule,
+    MatMenuModule
 ],
         
         providers: [
