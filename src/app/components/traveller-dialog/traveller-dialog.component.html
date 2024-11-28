@@ -1,0 +1,38 @@
+<div class="traveller-options">
+    <div class="option-group">
+      <label>ADULTS (12y+)   </label>
+      <mat-button-toggle-group [(ngModel)]="adults">
+        <mat-button-toggle *ngFor="let num of adultNumbers" [value]="num">
+          {{ num }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="option-group">
+      <label>CHILDREN (2y - 12y)   </label>
+      <mat-button-toggle-group [(ngModel)]="children">
+        <mat-button-toggle *ngFor="let num of childNumbers" [value]="num">
+          {{ num }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="option-group">
+      <label>INFANTS (below 2y)   </label>
+      <mat-button-toggle-group [(ngModel)]="infants">
+        <mat-button-toggle *ngFor="let num of infantNumbers" [value]="num">
+          {{ num }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="option-group">
+      <label>CHOOSE TRAVEL CLASS   </label>
+      <mat-button-toggle-group [(ngModel)]="travelClass">
+        <mat-button-toggle *ngFor="let cls of travelClasses" [value]="cls">
+          {{ cls }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="apply-btn">
+      <button mat-raised-button color="primary" (click)="applySelection()">APPLY</button>
+    </div>
+  </div>
+  

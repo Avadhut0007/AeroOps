@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { TravellerDialogComponent } from '../traveller-dialog/traveller-dialog.component';
 
 @Component({
   selector: 'app-flight-search',
@@ -7,9 +9,19 @@ import { FormControl } from '@angular/forms';
   styleUrl: './flight-search.component.css'
 })
 export class FlightSearchComponent {
+applySelection() {
+throw new Error('Method not implemented.');
+}
 
    departureControl = new FormControl();
 selectedFareType: any;
+adults: any;
+adultNumbers: any;
+children: any;
+childNumbers: any;
+infants: any;
+infantNumbers: any;
+travelClasses: any;
 
    getDepartureDate() {
      console.log(this.departureControl.value); // This will return the selected date
@@ -131,27 +143,27 @@ selectedFareType: any;
 
 
 
+  totalPassengers = 1;
+  travelClass = 'Economy';
 
-  adults: number = 1;
-  children: number = 0;
-  infants: number = 0;
-  travelClass: string = 'Economy/Premium Economy';
+  constructor(public dialog: MatDialog) {}
 
-  adultNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, '>9'];
-  childNumbers = [0, 1, 2, 3, 4, 5, 6, '>6'];
-  infantNumbers = [0, 1, 2, 3, 4, 5, 6, '>6'];
-  travelClasses = ['Economy/Premium Economy', 'Premium Economy', 'Business', 'First Class'];
+  openTravellerDialog() {
+    const dialogRef = this.dialog.open(TravellerDialogComponent, {
+      width: '700px',
+      data: {
+        adults: 1,
+        children: 0,
+        infants: 0,
+        travelClass: 'Economy',
+      },
+    });
 
-  get totalPassengers(): number {
-    return this.adults + this.children + this.infants;
-  }
-
-  applySelection() {
-    console.log('Selected:', {
-      adults: this.adults,
-      children: this.children,
-      infants: this.infants,
-      travelClass: this.travelClass,
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.totalPassengers = result.adults + result.children + result.infants;
+        this.travelClass = result.travelClass;
+      }
     });
   }
 }

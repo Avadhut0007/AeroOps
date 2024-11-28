@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.traveller-options {
+    padding: 20px;
+    gap: 15px;
+  }
+  
+  .option-group {
+  
+    padding-top: 20px;
+    gap: 5px;
+  }
+  
+  .apply-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  

@@ -32,6 +32,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TravellerDialogComponent } from './components/traveller-dialog/traveller-dialog.component';
 
 @NgModule({ 
     declarations: [
@@ -44,6 +46,7 @@ import {MatMenuModule} from '@angular/material/menu';
         ManageFlightsComponent,
         FlightSearchComponent,
         FlightsDataComponent,
+        TravellerDialogComponent,
     ],
     bootstrap: 
     [AppComponent], 
@@ -70,7 +73,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatCheckboxModule,
 
     MatButtonToggleModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
 ],
         
         providers: [

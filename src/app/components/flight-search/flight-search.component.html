@@ -3,10 +3,10 @@
   <div class="box">
     <!-- <div class="flight-search"> -->
     <div class="travel-options">
-      <mat-radio-group>
-        <mat-radio-button value="oneWay">One Way</mat-radio-button>
-        <mat-radio-button value="roundTrip">Round Trip</mat-radio-button>
-        <mat-radio-button value="multiCity">Multi City</mat-radio-button>
+      <mat-radio-group >
+        <mat-radio-button value="oneWay" class="travel-ops">One Way</mat-radio-button>
+        <mat-radio-button value="roundTrip" class="travel-ops">Round Trip</mat-radio-button>
+        <mat-radio-button value="multiCity" class="travel-ops">Multi City</mat-radio-button>
       </mat-radio-group>
     </div>
 
@@ -117,25 +117,6 @@
             </ng-container>
           </mat-autocomplete>
         </mat-form-field>
-
-        <!-- <mat-form-field appearance="outline">
-                  <mat-label>To</mat-label>
-                  <mat-select [(ngModel)]="selectedFrom" (selectionChange)="onToSelected($event)">
-                    <mat-select-trigger>
-                      <input
-                        matInput
-                        type="text"
-                        placeholder="Search city or airport"
-                        [value]="searchTo"
-                        (input)="filterTo($event)"
-                      />
-                    </mat-select-trigger>
-                    <mat-option *ngFor="let location of filteredToOptions" 
-                    [value]="location">
-                      {{ location }}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field> -->
       </div>
 
       <div class="dates">
@@ -147,11 +128,12 @@
             placeholder="Select a date"
             [formControl]="departureControl"
           />
+          <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
             matSuffix
             [for]="departurePicker"
           ></mat-datepicker-toggle>
-          <mat-datepicker #departurePicker></mat-datepicker>
+          <mat-datepicker touchUi  #departurePicker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -161,74 +143,24 @@
             [matDatepicker]="returnPicker"
             placeholder="Select a date"
           />
+          <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
             matSuffix
             [for]="returnPicker"
           ></mat-datepicker-toggle>
-          <mat-datepicker #returnPicker></mat-datepicker>
+          <mat-datepicker touchUi #returnPicker></mat-datepicker>
         </mat-form-field>
       </div>
-
+    
       <!-- new tab -->
-      <div class="traveller-class-container">
-        <mat-menu #menu="matMenu" class="traveller-menu">
-          <div class="traveller-options">
-            <div class="option-group">
-              <label>ADULTS (12y+)</label>
-              <mat-button-toggle-group [(ngModel)]="adults">
-                <mat-button-toggle *ngFor="let num of adultNumbers" [value]="num">
-                  {{ num }}
-                </mat-button-toggle>
-              </mat-button-toggle-group>
-            </div>
-            <div class="option-group">
-              <label>CHILDREN (2y - 12y)</label>
-              <mat-button-toggle-group [(ngModel)]="children">
-                <mat-button-toggle *ngFor="let num of childNumbers" [value]="num">
-                  {{ num }}
-                </mat-button-toggle>
-              </mat-button-toggle-group>
-            </div>
-            <div class="option-group">
-              <label>INFANTS (below 2y)</label>
-              <mat-button-toggle-group [(ngModel)]="infants">
-                <mat-button-toggle *ngFor="let num of infantNumbers" [value]="num">
-                  {{ num }}
-                </mat-button-toggle>
-              </mat-button-toggle-group>
-            </div>
-            <div class="travel-class">
-              <label>CHOOSE TRAVEL CLASS</label>
-              <mat-button-toggle-group [(ngModel)]="travelClass">
-                <mat-button-toggle *ngFor="let cls of travelClasses" [value]="cls">
-                  {{ cls }}
-                </mat-button-toggle>
-              </mat-button-toggle-group>
-            </div>
-            <div class="apply-btn">
-              <button mat-raised-button color="primary" (click)="applySelection()">APPLY</button>
-            </div>
-          </div>
-        </mat-menu>
-      
-        <button mat-button [matMenuTriggerFor]="menu">
-          <div>
-            <p>{{ totalPassengers }} Traveller</p>
-            <p>{{ travelClass }}</p>
-          </div>
-        </button>
+       <div class="dialog-button">
+      <button mat-button (click)="openTravellerDialog()">
+          <p>{{ totalPassengers }} Traveller</p>
+          <p>{{ travelClass }}</p>
+      </button>
       </div>
-      
     </div>
-
-    <!-- <div class="special-fares">    
-      <mat-radio-button>Regular</mat-radio-button>
-      <mat-radio-button>Student</mat-radio-button>
-      <mat-radio-button>Senior Citizen</mat-radio-button>
-      <mat-radio-button>Armed Forces</mat-radio-button>
-      <mat-radio-button>Doctor and Nurses</mat-radio-button>
-  
-    </div> -->
+   
 
     <div class="fare-type-tabs">
       <mat-radio-group [(ngModel)]="selectedFareType">

@@ -16,7 +16,6 @@
   height: 92.4vh;
   padding: 20px;
   box-sizing: border-box;
-
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -35,8 +34,48 @@
 .travel-options {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+    transition: all 0.3s ease;
+    padding-right: 4px;
+
+    mat-radio-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
 }
+
+.travel-ops{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 0px solid #e0e0e0;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding-right: 4px;
+  
+  &:hover {
+    background-color: #f1f1f1;
+  }
+}
+
+.dialog-button{
+  height: 55px;
+  width: 100px;
+  display:flex ;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 
 .flight-details {
   display: grid;
@@ -184,9 +223,6 @@
     text-align: center;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
-    /* padding: 10px 15px;
-    width: 170px;
-    height: 100px; */
     cursor: pointer;
     transition: all 0.3s ease;
     padding-right: 4px;
