@@ -1,4 +1,5 @@
-<div class="container">
+<app-navbar/>
+    <div class="header">
     <!-- Header Section -->
     <header class="search-header">
       <div class="trip-type">
@@ -34,7 +35,9 @@
       </div>
       <button mat-raised-button color="primary">Search</button>
     </header>
-  
+  </div>
+
+ <div class="container">
     <!-- Filter Section -->
     <aside class="filters">
       <h3>Popular Filters</h3>
@@ -43,6 +46,9 @@
       <mat-checkbox>Morning Departures</mat-checkbox>
     </aside>
   
+    <!-- <div *ngFor="let flight of flightDetails">
+      <p>Flights from {{flight.departureLocation}} to {{flight.arrivalLocation}}</p>
+    </div> -->
     <!-- Results Section -->
     <section class="results">
       <div class="tabs">
@@ -50,11 +56,40 @@
         <button mat-button>Fastest</button>
         <button mat-button>You May Prefer</button>
       </div>
-      <div class="flight-card" *ngFor="let flight of flights">
-        <h3>{{ flight.airline }}</h3>
-        <p>{{ flight.time }} - {{ flight.duration }}</p>
-        <p>{{ flight.price }}</p>
+      <div class="flight-card" *ngFor="let flight of flightDetails">
+        <div class="flight-card-left">
+          <img src="assets/airindia.png" alt="{{ flight.airlineName }}" class="airline-logo" />
+          <div>
+            <p class="airline-name">{{ flight.airlineName }}</p>
+            <p class="flight-number">{{ flight.flightNumber }}</p>
+          </div>
+        </div>
+        
+        <div class="flight-card-details">
+          <div>
+            <p class="time">{{ flight.depatureTime }}</p>
+            <p class="location">{{ flight.departureLocation }}</p>
+          </div>
+      
+          <div class="duration-container">
+            <p class="duration">{{ flight.flightDuration }}</p>
+            <p class="stop-info">{{ flight }}</p>
+          </div>
+      
+          <div>
+            <p class="time">{{ flight.arrivalTime }}</p>
+            <p class="location">{{ flight.arrivalLocation }}</p>
+          </div>
+        </div>
+      
+        <div class="price-container">
+          <p class="price">₹{{ flight.ticketPrice | number }}</p>
+          <p class="per-adult">per adult</p>
+        </div>
+        
+        <button class="view-prices-btn">VIEW PRICES</button>
       </div>
+      
     </section>
   </div>
   
