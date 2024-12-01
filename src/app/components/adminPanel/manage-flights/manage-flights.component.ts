@@ -30,6 +30,7 @@ export class ManageFlightsComponent implements OnInit {
     airportName:'',
     flightStatus:'',
     classType:'',
+    airlineLogo:''
   };
 
   constructor(
@@ -56,6 +57,7 @@ export class ManageFlightsComponent implements OnInit {
       airportName: ['', Validators.required],
       flightStatus: ['', Validators.required],
       classType: ['', Validators.required],
+      airairlineLogo:['',Validators.required]
     });
   }
 
@@ -96,7 +98,5 @@ export class ManageFlightsComponent implements OnInit {
       );
     }
   }
-  
-  
-  
+
 }

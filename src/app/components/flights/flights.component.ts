@@ -54,6 +54,7 @@ export class FlightDetails{
     public airportName:string,
     public flightStatus:string,
     public classType:string,
+    public airlineLogo:string,
   )
   {}
 }

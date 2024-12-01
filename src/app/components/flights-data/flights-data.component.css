@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  height: 90px;
+  height: 100px;
   background: linear-gradient(180deg, #002c55, #003a73); /* Dark gradient background */
   color: #ffffff; /* White text for better contrast */
 }
@@ -22,6 +22,7 @@
     grid-template-columns: 1fr 3fr;
     gap: 20px;
     padding: 20px;
+    height: 77.8%;
   }
   
   .search-header {
@@ -34,6 +35,16 @@
   .search-inputs {
     display: flex;
     gap: 10px;
+    padding-left: 10px;
+    padding-top: 13px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+  }
+
+  .search-button{
+    display: flex;
+    padding-left: 15px;
   }
   
   .filters {

@@ -33,7 +33,9 @@
           <mat-datepicker #departurePicker></mat-datepicker>
         </mat-form-field>
       </div>
-      <button mat-raised-button color="primary">Search</button>
+      <div class="search-button">
+      <button mat-raised-button color="primary" >Search</button>
+    </div>
     </header>
   </div>
 
@@ -58,7 +60,7 @@
       </div>
       <div class="flight-card" *ngFor="let flight of flightDetails">
         <div class="flight-card-left">
-          <img src="assets/airindia.png" alt="{{ flight.airlineName }}" class="airline-logo" />
+          <img src="{{flight.airlineLogo}}" alt="{{ flight.airlineName }}" class="airline-logo" />
           <div>
             <p class="airline-name">{{ flight.airlineName }}</p>
             <p class="flight-number">{{ flight.flightNumber }}</p>

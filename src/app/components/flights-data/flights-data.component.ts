@@ -2,6 +2,7 @@ import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ManageFlightsService } from '../../services/admin/manage-flights.service';
 
+
 @Component({
   selector: 'app-flights-data',
   templateUrl: './flights-data.component.html',
@@ -40,6 +41,7 @@ export class FlightDetails{
     public airportName:string,
     public flightStatus:string,
     public classType:string,
+    public airlineLogo : string,
   )
   {}
 }
