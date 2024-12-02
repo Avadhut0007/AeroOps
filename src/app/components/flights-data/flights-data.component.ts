@@ -6,7 +6,8 @@ import { ManageFlightsService } from '../../services/admin/manage-flights.servic
 @Component({
   selector: 'app-flights-data',
   templateUrl: './flights-data.component.html',
-  styleUrl: './flights-data.component.css'
+  styleUrl: './flights-data.component.css',
+
 })
 export class FlightsDataComponent implements OnInit{
   flightDetails :FlightDetails[]=[];

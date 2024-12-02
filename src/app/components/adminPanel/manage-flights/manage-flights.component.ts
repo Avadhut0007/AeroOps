@@ -57,7 +57,7 @@ export class ManageFlightsComponent implements OnInit {
       airportName: ['', Validators.required],
       flightStatus: ['', Validators.required],
       classType: ['', Validators.required],
-      airairlineLogo:['',Validators.required]
+      airlineLogo:['',Validators.required]
     });
   }
 

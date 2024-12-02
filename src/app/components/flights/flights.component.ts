@@ -33,7 +33,7 @@ export class FlightsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.manageFlightsServices.getFlightDetails().subscribe(Response => { this.flightDetails = Response })
+    // this.manageFlightsServices.getFlightDetails().subscribe(Response => { this.flightDetails = Response })
 }
 
 }

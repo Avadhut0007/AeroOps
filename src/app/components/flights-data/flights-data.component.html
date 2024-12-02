@@ -4,22 +4,22 @@
     <header class="search-header">
       <div class="trip-type">
         <mat-radio-group>
-          <mat-radio-button value="one-way">One Way</mat-radio-button>
+          <mat-radio-button value="one-way" >One Way</mat-radio-button>
           <mat-radio-button value="round-trip">Round Trip</mat-radio-button>
           <mat-radio-button value="multi-city">Multi City</mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="search-inputs">
         <mat-form-field appearance="outline">
-          <mat-label>From</mat-label>
-          <mat-select placeholder="Select Departure">
+          <mat-label style="color:blanchedalmond ;">From</mat-label>
+          <mat-select placeholder="Select Departure" >
             <mat-option *ngFor="let location of locations" [value]="location">
               {{ location }}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>To</mat-label>
+          <mat-label style="color: blanchedalmond;">To</mat-label>
           <mat-select placeholder="Select Destination">
             <mat-option *ngFor="let location of locations" [value]="location">
               {{ location }}
@@ -27,7 +27,7 @@
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>Departure</mat-label>
+          <mat-label style="color: blanchedalmond;">Departure</mat-label>
           <input matInput [matDatepicker]="departurePicker" placeholder="Select a date">
           <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
           <mat-datepicker #departurePicker></mat-datepicker>

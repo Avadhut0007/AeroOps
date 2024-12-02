@@ -4,6 +4,9 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__leading{
+  border-color: whitesmoke;
+}
 .header {
   display: flex;
   align-items: center;
@@ -15,6 +18,7 @@
 }
 
 
+
 .container {
     background-color: #c9d6ff;
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
@@ -24,7 +28,7 @@
     padding: 20px;
     height: 77.8%;
   }
-  
+
   .search-header {
     grid-column: span 2;
     display: flex;
@@ -39,9 +43,11 @@
     padding-top: 13px;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: currentcolor;
   }
 
+
+  
   .search-button{
     display: flex;
     padding-left: 15px;
