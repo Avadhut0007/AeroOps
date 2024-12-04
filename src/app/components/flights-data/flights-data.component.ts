@@ -30,7 +30,7 @@ export class FlightDetails{
   constructor(
     public departureLocation: string,
     public arrivalLocation:string,
-    public depatureDate:Date,
+    public departureDate:Date,
     public arrivalDate:Date,
     public ticketPrice:number,
     public flightNumber:number,

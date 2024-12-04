@@ -1,5 +1,11 @@
 <app-navbar />
+
 <div class="container">
+
+  <div class="heading-name">
+    <p>Book International and Domestic Flights</p>
+</div>
+
   <div class="box">
     <!-- <div class="flight-search"> -->
     <div class="travel-options">
@@ -153,12 +159,16 @@
       </div>
     
       <!-- new tab -->
-       <div class="dialog-button">
-      <button mat-button (click)="openTravellerDialog()">
-          <p>{{ totalPassengers }} Traveller</p>
-          <p>{{ travelClass }}</p>
-      </button>
+      <div class="dialog-button">
+        <button mat-button (click)="openTravellerDialog()" class="traveller-class-btn">
+          <div class="traveller-content">
+            <p class="traveller-title">Travellers & Class</p>
+            <p class="traveller-count"><strong>{{ totalPassengers }}</strong> Traveller</p>
+            <p class="traveller-class">{{ travelClass }}</p>
+          </div>
+        </button>
       </div>
+      
     </div>
    
 
