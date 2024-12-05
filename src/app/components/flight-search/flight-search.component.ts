@@ -150,7 +150,7 @@ travelClasses: any;
 
   openTravellerDialog() {
     const dialogRef = this.dialog.open(TravellerDialogComponent, {
-      width: '700px',
+      width: '600px',
       data: {
         adults: 1,
         children: 0,

@@ -22,4 +22,9 @@
     justify-content: center;
     margin-top: 20px;
   }
+
+  .option-group label{
+    font-size: 16px;
+    font-weight: 500;
+  }
   
