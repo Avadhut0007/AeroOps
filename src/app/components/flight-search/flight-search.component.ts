@@ -1,30 +1,39 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { TravellerDialogComponent } from '../traveller-dialog/traveller-dialog.component';
+import { ManageFlightsService } from '../../services/admin/manage-flights.service';
 
 @Component({
   selector: 'app-flight-search',
   templateUrl: './flight-search.component.html',
-  styleUrl: './flight-search.component.css'
+  styleUrl: './flight-search.component.css',
 })
 export class FlightSearchComponent {
+  totalPassengers = 1;
+  travelClass = 'Economy';
 
+  departureControl = new FormControl();
+  selectedFareType: any;
+  adults: any;
+  adultNumbers: any;
+  children: any;
+  childNumbers: any;
+  infants: any;
+  infantNumbers: any;
+  travelClasses: any;
 
-departureControl = new FormControl();
-selectedFareType: any;
-adults: any;
-adultNumbers: any;
-children: any;
-childNumbers: any;
-infants: any;
-infantNumbers: any;
-travelClasses: any;
+  searchFlight: any[] = [];
 
-   getDepartureDate() {
-     console.log(this.departureControl.value); // This will return the selected date
-   }
-  
+  constructor(
+    private dialog: MatDialog,
+    private manageFlightsService: ManageFlightsService
+  ) {}
+
+  getDepartureDate() {
+    console.log(this.departureControl.value); // This will return the selected date
+  }
+
   airports = [
     { name: 'Pune Airport', code: 'PNQ' },
     { name: 'Shirdi Airport', code: 'SAG' },
@@ -81,13 +90,6 @@ travelClasses: any;
     console.log('Selected To:', selectedAirport);
   }
 
-
-
-  totalPassengers = 1;
-  travelClass = 'Economy';
-
-  constructor(public dialog: MatDialog) {}
-
   openTravellerDialog() {
     const dialogRef = this.dialog.open(TravellerDialogComponent, {
       width: '600px',
@@ -99,7 +101,7 @@ travelClasses: any;
       },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.totalPassengers = result.adults + result.children + result.infants;
         this.travelClass = result.travelClass;

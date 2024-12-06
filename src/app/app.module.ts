@@ -34,6 +34,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TravellerDialogComponent } from './components/traveller-dialog/traveller-dialog.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({ 
     declarations: [
@@ -74,7 +75,10 @@ import { TravellerDialogComponent } from './components/traveller-dialog/travelle
 
     MatButtonToggleModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+
+    NgxPaginationModule
+
 ],
         
         providers: [

@@ -1,97 +1,115 @@
-<app-navbar/>
-    <div class="header">
-    <!-- Header Section -->
-    <header class="search-header">
-      <div class="trip-type">
-        <mat-radio-group>
-          <mat-radio-button value="one-way" >One Way</mat-radio-button>
-          <mat-radio-button value="round-trip">Round Trip</mat-radio-button>
-          <mat-radio-button value="multi-city">Multi City</mat-radio-button>
-        </mat-radio-group>
-      </div>
-      <div class="search-inputs">
-        <mat-form-field appearance="outline">
-          <mat-label style="color:blanchedalmond ;">From</mat-label>
-          <mat-select placeholder="Select Departure" >
-            <mat-option *ngFor="let location of locations" [value]="location">
-              {{ location }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label style="color: blanchedalmond;">To</mat-label>
-          <mat-select placeholder="Select Destination">
-            <mat-option *ngFor="let location of locations" [value]="location">
-              {{ location }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label style="color: blanchedalmond;">Departure</mat-label>
-          <input matInput [matDatepicker]="departurePicker" placeholder="Select a date">
-          <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
-          <mat-datepicker #departurePicker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div class="search-button">
-      <button mat-raised-button color="primary" >Search</button>
+<app-navbar />
+<div class="header">
+  <!-- Header Section -->
+  <header class="search-header">
+    <div class="trip-type">
+      <mat-radio-group>
+        <mat-radio-button value="one-way">One Way</mat-radio-button>
+        <mat-radio-button value="round-trip">Round Trip</mat-radio-button>
+        <mat-radio-button value="multi-city">Multi City</mat-radio-button>
+      </mat-radio-group>
     </div>
-    </header>
-  </div>
+    <div class="search-inputs">
+      <mat-form-field appearance="outline">
+        <mat-label style="color: blanchedalmond">From</mat-label>
+        <mat-select placeholder="Select Departure">
+          <mat-option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label style="color: blanchedalmond">To</mat-label>
+        <mat-select placeholder="Select Destination">
+          <mat-option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label style="color: blanchedalmond">Departure</mat-label>
+        <input
+          matInput
+          [matDatepicker]="departurePicker"
+          placeholder="Select a date"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="departurePicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #departurePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="search-button">
+      <button mat-raised-button color="primary">Search</button>
+    </div>
+  </header>
+</div>
 
- <div class="container">
-    <!-- Filter Section -->
-    <aside class="filters">
-      <h3>Popular Filters</h3>
-      <mat-checkbox>IndiGo</mat-checkbox>
-      <mat-checkbox>1 Stop</mat-checkbox>
-      <mat-checkbox>Morning Departures</mat-checkbox>
-    </aside>
-  
-    <!-- <div *ngFor="let flight of flightDetails">
+<div class="container">
+  <!-- Filter Section -->
+  <aside class="filters">
+    <h3>Popular Filters</h3>
+    <mat-checkbox>IndiGo</mat-checkbox>
+    <mat-checkbox>1 Stop</mat-checkbox>
+    <mat-checkbox>Morning Departures</mat-checkbox>
+  </aside>
+
+  <!-- <div *ngFor="let flight of flightDetails">
       <p>Flights from {{flight.departureLocation}} to {{flight.arrivalLocation}}</p>
     </div> -->
-    <!-- Results Section -->
-    <section class="results">
-      <div class="tabs">
-        <button mat-button>Cheapest</button>
-        <button mat-button>Fastest</button>
-        <button mat-button>You May Prefer</button>
+  <!-- Results Section -->
+  <section class="results">
+    <div class="tabs">
+      <button mat-button>Cheapest</button>
+      <button mat-button>Fastest</button>
+      <button mat-button>You May Prefer</button>
+    </div>
+    <div
+      class="flight-card"
+      *ngFor="
+        let flight of flightDetails
+          | paginate : { itemsPerPage: count, currentPage: p }
+      "
+    >
+      <div class="flight-card-left">
+        <img
+          src="{{ flight.airlineLogo }}"
+          alt="{{ flight.airlineName }}"
+          class="airline-logo"
+        />
+        <div>
+          <p class="airline-name">{{ flight.airlineName }}</p>
+          <p class="flight-number">{{ flight.flightNumber }}</p>
+        </div>
       </div>
-      <div class="flight-card" *ngFor="let flight of flightDetails">
-        <div class="flight-card-left">
-          <img src="{{flight.airlineLogo}}" alt="{{ flight.airlineName }}" class="airline-logo" />
-          <div>
-            <p class="airline-name">{{ flight.airlineName }}</p>
-            <p class="flight-number">{{ flight.flightNumber }}</p>
-          </div>
+
+      <div class="flight-card-details">
+        <div>
+          <p class="time">{{ flight.depatureTime }}</p>
+          <p class="location">{{ flight.departureLocation }}</p>
         </div>
-        
-        <div class="flight-card-details">
-          <div>
-            <p class="time">{{ flight.depatureTime }}</p>
-            <p class="location">{{ flight.departureLocation }}</p>
-          </div>
-      
-          <div class="duration-container">
-            <p class="duration">{{ flight.flightDuration }}</p>
-            <p class="stop-info">{{ flight }}</p>
-          </div>
-      
-          <div>
-            <p class="time">{{ flight.arrivalTime }}</p>
-            <p class="location">{{ flight.arrivalLocation }}</p>
-          </div>
+
+        <div class="duration-container">
+          <p class="duration">{{ flight.flightDuration }}</p>
+          <p class="stop-info">{{ flight }}</p>
         </div>
-      
-        <div class="price-container">
-          <p class="price">₹{{ flight.ticketPrice | number }}</p>
-          <p class="per-adult">per adult</p>
+
+        <div>
+          <p class="time">{{ flight.arrivalTime }}</p>
+          <p class="location">{{ flight.arrivalLocation }}</p>
         </div>
-        
-        <button class="view-prices-btn">VIEW PRICES</button>
       </div>
-      
-    </section>
-  </div>
-  
+
+      <div class="price-container">
+        <p class="price">₹{{ flight.ticketPrice | number }}</p>
+        <p class="per-adult">per adult</p>
+      </div>
+
+      <button class="view-prices-btn">VIEW PRICES</button>
+    </div>
+    <div class="paginator-controller">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </section>
+</div>

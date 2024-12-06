@@ -10,6 +10,9 @@ import { ManageFlightsService } from '../../services/admin/manage-flights.servic
 
 })
 export class FlightsDataComponent implements OnInit{
+  p: number = 1;
+ count: number = 3;
+
   flightDetails :FlightDetails[]=[];
   locations = ['Pune, India', 'Kolhapur, India', 'Mumbai, India'];
   flights = [
