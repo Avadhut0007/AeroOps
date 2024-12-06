@@ -113,6 +113,7 @@
   width: 15%;
   font-size: 18px;
   font-weight: bold;
+  border-radius: 20px;
 }
 
 .dropdown-search mat-select {
