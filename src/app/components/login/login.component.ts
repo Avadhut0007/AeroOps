@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginRegistrationService } from '../../services/login-registration.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ user={
 
 constructor(private loginRe:LoginRegistrationService,
             private formBuilder:FormBuilder, 
-            private snackBar:MatSnackBar){}
+            private snackBar:MatSnackBar,
+            private router : Router){}
 
   ngOnInit(): void {
     this.signupForm=this.formBuilder.group({
@@ -52,6 +54,7 @@ onSubmit(){
             verticalPosition:'top',
             horizontalPosition:'center'
           });
+          
         }else{
           alert("Please try again")
         }
@@ -95,6 +98,7 @@ if(this.loginForm.valid){
   this.loginRe.loginUser(emailId,userPassword).
   subscribe(Response=>{
     if(Response.status === 200){
+      this.router.navigate(['/flight-search']);
       this.snackBar.open('User logged in successfully','Close',{
         duration:4000,
         verticalPosition:'bottom',

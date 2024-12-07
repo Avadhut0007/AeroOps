@@ -12,7 +12,8 @@ import { TravellerDialogComponent } from './components/traveller-dialog/travelle
 
 
 const routes: Routes = [
-{path:'',component:NavbarComponent},
+{path:'',component:LoginComponent},
+{path:'navbar',component:NavbarComponent},
 {path:'login',component:LoginComponent},
 {path:'forgot-password',component:ForgotPasswordComponent},
 {path:'reset-password',component:ResetPasswordComponent},

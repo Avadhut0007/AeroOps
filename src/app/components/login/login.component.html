@@ -6,10 +6,6 @@
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <h1><b>Create Account</b></h1>
             <span>use your email for registeration</span>
-            <!-- <input type="text" placeholder="Name" [(ngModel)]="user.firstName" name="firstName">
-            <input type="email" placeholder="Email" [(ngModel)]="user.emailId" name="emailId">
-            <input type="password" placeholder="Password" [(ngModel)]="user.userPassword" name="userPassword">
-            <button type="submit">Sign Up</button> -->
             <div>
                 <input type="text" placeholder="Enter Your Name" formControlName="firstName">
                 <div *ngIf="signupForm.get('firstName')?.invalid && (signupForm.get('firstName')?.dirty || signupForm.get('firstName')?.touched)" class="error-message">
