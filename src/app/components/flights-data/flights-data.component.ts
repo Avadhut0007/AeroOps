@@ -1,5 +1,5 @@
 import { Time } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ManageFlightsService } from '../../services/admin/manage-flights.service';
 
 

@@ -4,9 +4,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__leading{
-  border-color: whitesmoke;
+span{
+  color: whitesmoke;
 }
+
 .header {
   display: flex;
   align-items: center;
