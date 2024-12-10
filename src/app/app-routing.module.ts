@@ -9,6 +9,7 @@ import { ManageFlightsComponent } from './components/adminPanel/manage-flights/m
 import { FlightSearchComponent } from './components/flight-search/flight-search.component';
 import { FlightsDataComponent } from './components/flights-data/flights-data.component';
 import { TravellerDialogComponent } from './components/traveller-dialog/traveller-dialog.component';
+import { AdminNavbarComponent } from './components/adminPanel/admin-navbar/admin-navbar.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
 {path:'manage-flights',component:ManageFlightsComponent},
 {path:'flight-search',component:FlightSearchComponent},
 {path:'flights-data',component:FlightsDataComponent},
-{path:'traveller-dialog',component:TravellerDialogComponent}
+{path:'traveller-dialog',component:TravellerDialogComponent},
+{path:'admin-navbar',component:AdminNavbarComponent}
 ];
 
 @NgModule({

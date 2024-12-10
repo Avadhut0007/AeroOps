@@ -1,0 +1,15 @@
+
+<nav class="navbar">
+    <div class="navbar-brand">
+      <a routerLink="/">AeroOps</a>
+    </div>
+    <ul class="navbar-links" [class.active]="menuActive">
+      <li><a routerLink="/manage-flights" routerLinkActive="active">Schedule Flights</a></li>
+      
+    </ul>
+    <div class="navbar-toggle" (click)="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>

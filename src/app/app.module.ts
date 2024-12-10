@@ -35,6 +35,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TravellerDialogComponent } from './components/traveller-dialog/traveller-dialog.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AdminNavbarComponent } from './components/adminPanel/admin-navbar/admin-navbar.component';
 
 @NgModule({ 
     declarations: [
@@ -48,6 +49,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
         FlightSearchComponent,
         FlightsDataComponent,
         TravellerDialogComponent,
+        AdminNavbarComponent,
     ],
     bootstrap: 
     [AppComponent], 
