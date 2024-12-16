@@ -1,6 +1,7 @@
 import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FlightsDataService } from '../../services/flights-data.service';
+declare var Razorpay : any;
 
 @Component({
   selector: 'app-flights-data',
@@ -47,6 +48,40 @@ export class FlightsDataComponent implements OnInit {
       this.flightDetails = Response;
     });
   }
+
+  payNow() {
+    const RazorpayOptions = {
+      description : 'sample',
+      currency : 'INR',
+      amount : 500000,
+      name : 'AeroOps',
+      key :'rzp_test_4cmsra6A3IAY4M',
+      image : '/assets/logo.png',
+      prefill : {
+        name : 'avadhut',
+        email : 'avadhutp620@gmail.com',
+        phone : '7770004384',
+      },
+      theme :{
+        color : '#f37254',
+      },
+      modal : {
+        ondismiss : () => {
+          console.log('dismissed')
+        }
+      }
+    }
+
+    const SuccessCallback =  (paymentid : any) => {
+        console.log(paymentid);
+    }
+
+    const FailureCallback = (e : any) => {
+      console.log(e);
+    }
+
+    Razorpay.open(RazorpayOptions,SuccessCallback,FailureCallback)
+    }
 }
 
 export class FlightDetails {

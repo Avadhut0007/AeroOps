@@ -4,6 +4,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+
+
 span{
   color: whitesmoke;
 }
@@ -17,8 +19,6 @@ span{
   background: linear-gradient(180deg, #002c55, #003a73); /* Dark gradient background */
   color: #ffffff; /* White text for better contrast */
 }
-
-
 
 .container {
     background-color: #c9d6ff;
@@ -67,7 +67,6 @@ span{
   }
   
   .flight-card {
-    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -181,3 +180,24 @@ span{
 :host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
   border-color: whitesmoke;
 }
+
+:host ::ng-deep .mat-mdc-fab.mat-accent{
+  --mdc-fab-container-color: #E5D9F2;
+}
+
+:host ::ng-deep .mat-mdc-fab .mdc-button__label{
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+:host ::ng-deep .mat-mdc-fab.mat-accent{
+  --mat-fab-foreground-color: black;
+}
+
+.tabs button {
+  margin-right: 12px; /* Adjust spacing as needed */
+}
+
+/* .results .flight-card{
+  padding-top: 20px;
+} */

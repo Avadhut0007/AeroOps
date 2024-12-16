@@ -6,12 +6,12 @@
       <mat-radio-group>
         <mat-radio-button value="one-way">
           <span>One Way</span>
-        </mat-radio-button>        
+        </mat-radio-button>
         <mat-radio-button value="round-trip">
           <span>Round Trip</span>
         </mat-radio-button>
         <mat-radio-button value="multi-city">
-         <span> Multi City </span>
+          <span> Multi City </span>
         </mat-radio-button>
       </mat-radio-group>
     </div>
@@ -67,9 +67,9 @@
   <!-- Results Section -->
   <section class="results">
     <div class="tabs">
-      <button mat-button>Cheapest</button>
-      <button mat-button>Fastest</button>
-      <button mat-button>You May Prefer</button>
+      <button mat-fab extended (click)="sortByPrice()">₹Cheapest</button>
+      <button mat-fab extended (click)="sortByFlightDuration()">Fastest</button>
+      <button mat-fab extended>You May Prefer</button>
     </div>
     <div
       class="flight-card"
@@ -112,7 +112,7 @@
         <p class="per-adult">per adult</p>
       </div>
 
-      <button class="view-prices-btn">VIEW PRICES</button>
+      <button class="view-prices-btn" (click)="payNow()">VIEW PRICES</button>
     </div>
     <div class="paginator-controller">
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
