@@ -67,6 +67,7 @@ span{
   }
   
   .flight-card {
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -75,7 +76,7 @@ span{
     margin: 10px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    font-family: Arial, sans-serif;
+   
   }
   
   .flight-card-left {

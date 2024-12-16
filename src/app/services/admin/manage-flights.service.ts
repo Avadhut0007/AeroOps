@@ -16,12 +16,6 @@ export class ManageFlightsService {
     return this.httpClient.post(`${this.apiUrl}/addFlights`,flightDetails, { observe: 'response' });
   }
 
-  getFlightDetails() {
-    return this.httpClient.get<FlightDetails[]>(`${this.apiUrl}/showFlightDetails`);
-  }
 
-  searchFlights(departureLocation: string, arrivalLocation: string, departureDate: string, arrivalDate: string): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/searchFlights/${departureLocation}/${arrivalLocation}/${departureDate}/${arrivalDate}`);
-  }
 
 }

@@ -37,6 +37,9 @@ import { TravellerDialogComponent } from './components/traveller-dialog/travelle
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminNavbarComponent } from './components/adminPanel/admin-navbar/admin-navbar.component';
 
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+
 @NgModule({ 
     declarations: [
         AppComponent,
@@ -79,7 +82,11 @@ import { AdminNavbarComponent } from './components/adminPanel/admin-navbar/admin
     MatMenuModule,
     MatDialogModule,
 
-    NgxPaginationModule
+    NgxPaginationModule,
+
+    MatIconModule,
+    MatDividerModule
+    
 
 ],
         
