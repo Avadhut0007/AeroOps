@@ -49,11 +49,13 @@ export class FlightsDataComponent implements OnInit {
     });
   }
 
+  ticketPrice :number =0;
+
   payNow() {
     const RazorpayOptions = {
       description : 'sample',
       currency : 'INR',
-      amount : 500000,
+      amount : 5000*100,
       name : 'AeroOps',
       key :'rzp_test_4cmsra6A3IAY4M',
       image : '/assets/logo.png',

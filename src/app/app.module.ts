@@ -39,6 +39,7 @@ import { AdminNavbarComponent } from './components/adminPanel/admin-navbar/admin
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({ 
     declarations: [
@@ -53,6 +54,7 @@ import {MatDividerModule} from '@angular/material/divider';
         FlightsDataComponent,
         TravellerDialogComponent,
         AdminNavbarComponent,
+        PaymentComponent,
     ],
     bootstrap: 
     [AppComponent], 

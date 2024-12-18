@@ -67,9 +67,10 @@
   <!-- Results Section -->
   <section class="results">
     <div class="tabs">
-      <button mat-fab extended (click)="sortByPrice()">₹Cheapest</button>
+      <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
+      <button mat-fab extended (click)="sortByPrice()"> ₹Cheapest</button>
       <button mat-fab extended (click)="sortByFlightDuration()">Fastest</button>
-      <button mat-fab extended>You May Prefer</button>
+      <button mat-fab extended (click)="sortByPrice()">You May Prefer</button>
     </div>
     <div
       class="flight-card"
