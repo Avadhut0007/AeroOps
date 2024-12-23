@@ -16,6 +16,9 @@ export class ManageFlightsService {
     return this.httpClient.post(`${this.apiUrl}/addFlights`,flightDetails, { observe: 'response' });
   }
 
+  getAirports(): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${this.apiUrl}/getDepartureName`); 
+  }
 
 
 }

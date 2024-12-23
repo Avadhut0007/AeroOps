@@ -37,7 +37,7 @@
                   [value]="airport.name"
                   (click)="onFromSelected(airport)"
                 >
-                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                  <span>{{airport}}</span>
                 </mat-option>
               </mat-optgroup>
             </ng-container>
@@ -87,11 +87,11 @@
             <ng-container *ngIf="filteredAirportsTo.length">
               <mat-optgroup label="Search Results">
                 <mat-option
-                  *ngFor="let airport of filteredAirportsTo"
+                *ngFor="let airport of filteredAirportsFrom"
                   [value]="airport.name"
-                  (click)="onToSelected(airport)"
+                  (click)="onFromSelected(airport)"
                 >
-                  <span>{{ airport.name }}, {{ airport.code }}</span>
+                  <span>{{airport}}</span>
                 </mat-option>
               </mat-optgroup>
             </ng-container>
@@ -176,31 +176,31 @@
       <mat-radio-group [(ngModel)]="selectedFareType">
         <mat-radio-button class="tab-option" value="regular">
           <div>
-            <h4>Regular</h4>
+            <p id="fare-type-tab-head">Regular</p>
             <p>Regular fares</p>
           </div>
         </mat-radio-button>
         <mat-radio-button class="tab-option" value="student">
           <div>
-            <h4>Student</h4>
+            <p id="fare-type-tab-head">Student</p>
             <p>Extra discounts/baggage</p>
           </div>
         </mat-radio-button>
         <mat-radio-button class="tab-option" value="senior">
           <div>
-            <h4>Senior Citizen</h4>
+            <p id="fare-type-tab-head">Senior Citizen</p>
             <p>Up to ₹600 off</p>
           </div>
         </mat-radio-button>
         <mat-radio-button class="tab-option" value="armed-forces">
           <div>
-            <h4>Armed Forces</h4>
+            <p id="fare-type-tab-head">Armed Forces</p>
             <p>Up to ₹600 off</p>
           </div>
         </mat-radio-button>
         <mat-radio-button class="tab-option" value="doctor-nurses">
           <div>
-            <h4>Doctor and Nurses</h4>
+            <p id="fare-type-tab-head">Doctor and Nurses</p>
             <p>Up to ₹600 off</p>
           </div>
         </mat-radio-button>

@@ -9,7 +9,7 @@ import { ManageFlightsService } from '../../services/admin/manage-flights.servic
   templateUrl: './flight-search.component.html',
   styleUrl: './flight-search.component.css',
 })
-export class FlightSearchComponent {
+export class FlightSearchComponent implements OnInit {
   totalPassengers = 1;
   travelClass = 'Economy';
 
@@ -34,12 +34,22 @@ export class FlightSearchComponent {
     console.log(this.departureControl.value); // This will return the selected date
   }
 
-  airports = [
-    { name: 'Pune Airport', code: 'PNQ' },
-    { name: 'Shirdi Airport', code: 'SAG' },
-    { name: 'Chhatrapati Shivaji International Airport', code: 'BOM' },
-    { name: 'Indira Gandhi International Airport', code: 'DEL' },
-  ];
+  airports: { name: string; code: string }[] = [];
+  ngOnInit(): void {
+    this.fetchAirports();
+  }
+
+  fetchAirports() {
+    this.manageFlightsService.getAirports().subscribe(
+      (data) => {
+        this.airports = data; // Populate airports with backend data
+        this.filteredAirportsFrom = data; // Initialize filtered list
+      },
+      (error) => {
+        console.error('Error fetching airports:', error);
+      }
+    );
+  }
 
   // Recent searches and popular cities
   recentSearches = [
@@ -56,7 +66,7 @@ export class FlightSearchComponent {
   searchTermTo: string = '';
 
   // Filtered options
-  filteredAirportsFrom: { name: string; code: string }[] = [];
+  filteredAirportsFrom: { name: string ;}[] = [];
   filteredAirportsTo: { name: string; code: string }[] = [];
 
   // Method to filter airports for the "From" field

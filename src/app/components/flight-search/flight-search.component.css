@@ -290,7 +290,16 @@
 }
 
 
-:host ::ng-deep .mat-typography h4{
-  font: 400 16px / 24px ;
+:host ::ng-deep .mdc-form-field{
   font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+:host ::ng-deep .mat-mdc-raised-button{
+  font-family: "Montserrat", sans-serif;
+}
+
+#fare-type-tab-head{
+  font-size: 13px;
+  font-weight: 800;
 }
